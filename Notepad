@@ -1,0 +1,21 @@
+La clase Account nos permite 3 operaciones:
+- deposit: Depositar (sumar) una cantidad de dinero a la cuenta.
+- withdraw: Extraer (restar) una cantidad de dinero desde la cuenta.
+- printStatement: Devuelve un String con el detalle de movimientos de la cuenta.
+
+La información de las transacciones se almacena en una clase "Database", dentro de un hashmap.
+La clave es el timestamp y el valor sería el amount de la transacción.
+
+La interacción con el almacenamiento de datos se hace a través de un AccountRepository.
+
+El AccountRepository nos provee las siguientes funciones:
+- save: Recibe un Integer, crea la entrada correspondiente en el almacenamiento.
+- findAll : Devuelve una lista con todos los movimientos almacenados.
+
+Cuando generamos una transacción, creamos una nueva entrada en el hashmap.
+Esto lo hacemos mediante el método "save" del AccountRepository. El mismo recibe un parámetro del tipo Integer.
+
+StatementGenerator nos permite recibir la información de todos los movimientos desde el AccountRepository.
+ - recibirDatos : Solicita al AccountRepository todos los movimientos.
+ - agregarBalance : Agrega en cada movimiento, el balance parcial.
+ - devuelveStatement : Formatea la información y genera un string.

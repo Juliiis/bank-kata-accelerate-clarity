@@ -10,18 +10,16 @@ public class AccountRepository {
         this.database = new DataBase();
     }
 
-    public String createTimestamp(){
-        SimpleDateFormat date = new SimpleDateFormat("dd.MM.yyyy.HH:mm:ss");
-        String timeStamp = date.format(new Date());
-        return timeStamp;
+    public Transaction createTransaction(String timeStamp, Integer amount) {
+        Transaction transaction = new Transaction(timeStamp, amount);
+        return transaction;
     }
 
-    public void save(){
-        database.data.put(createTimestamp(), 100);
+    public void save(String timeStamp, Integer amount){
+        database.data.add(createTransaction(timeStamp, amount));
     }
 
     public ArrayList<Transaction> findAll(){
-        ArrayList<Transaction> transactionHistory = new ArrayList<>();
-        return transactionHistory;
+        return database.data;
     }
 }

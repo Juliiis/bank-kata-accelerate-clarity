@@ -1,5 +1,6 @@
-import java.util.HashMap;
+import java.util.ArrayList;
+
 public class DataBase {
-    HashMap<String, Integer> data = new HashMap<>();
+    ArrayList<Transaction> data = new ArrayList<>();
 }
 

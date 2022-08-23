@@ -22,4 +22,15 @@ public class AccountRepositoryTest {
         expectedData.add(transaction);
         return expectedData;
     }
+
+    @Test
+    void check_that_find_all_method_from_account_repository_works(){
+        AccountRepository accountRepository = new AccountRepository();
+        accountRepository.save("22-03-2022", 100);
+        ArrayList<Transaction> actualList = accountRepository.findAll();
+        ArrayList<Transaction> expectedList = new ArrayList<>();
+        Transaction transaction = new Transaction("22-03-2022", 100);
+        expectedList.add(transaction);
+        assertThat(actualList).usingRecursiveComparison().isEqualTo(expectedList);
+    }
 }

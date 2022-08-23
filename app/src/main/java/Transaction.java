@@ -6,4 +6,12 @@ public class Transaction {
         this.timestamp = timestamp;
         this.amount = amount;
     }
+
+    public String getTimestamp(){
+        return timestamp;
+    }
+
+    public Integer getAmount(){
+        return amount;
+    }
 }

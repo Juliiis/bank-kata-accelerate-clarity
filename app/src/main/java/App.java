@@ -8,6 +8,17 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        DataBase database = new DataBase();
+
+        Transaction transaction1 = new Transaction("hora", 300);
+        Transaction transaction2 = new Transaction("otrahora", -200);
+        Transaction transaction3 = new Transaction("otrahoramas", 500);
+        database.data.add(transaction1);
+        database.data.add(transaction2);
+        database.data.add(transaction3);
+
+        StatementGenerator statementGenerator = new StatementGenerator(database);
+        System.out.println(statementGenerator.getData());
     }
 }

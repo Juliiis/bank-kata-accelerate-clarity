@@ -8,7 +8,7 @@ public class Account {
 
     void deposit(int amount){
         if (amount > 0) {
-            Transaction transaction = new Transaction("04-07-2022", amount);
+            Transaction transaction = new Transaction("04.07.2022", amount);
             accountRepository.save(transaction);
         }
         else {
@@ -19,7 +19,7 @@ public class Account {
     void withdraw(int amount){
         if (amount > 0) {
             amount *= -1;
-            Transaction transaction = new Transaction("05-07-2022", amount);
+            Transaction transaction = new Transaction("05.07.2022", amount);
             accountRepository.save(transaction);
         }
         else {

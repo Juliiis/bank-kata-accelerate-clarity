@@ -8,7 +8,7 @@ public class AccountRepositoryTest {
     void check_that_save_and_find_all_methods_from_account_repository_works() {
 
         AccountRepository accountRepository = new AccountRepository();
-        Transaction transaction = new Transaction("22-03-2022", 100);
+        Transaction transaction = new Transaction("22.03.2022", 100);
         accountRepository.save(transaction);
         ArrayList<Transaction> actualTransactionList;
         ArrayList<Transaction> expectedTransactionList = new ArrayList<>();

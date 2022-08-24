@@ -9,9 +9,9 @@ public class AccountRepository {
         this.database = new DataBase();
     }
 
-    public void save(String timeStamp, Integer amount){
+    public void save(Transaction transaction){
 
-        database.data.add(new Transaction(timeStamp, amount));
+        database.data.add(transaction);
     }
 
     public ArrayList<Transaction> findAll(){

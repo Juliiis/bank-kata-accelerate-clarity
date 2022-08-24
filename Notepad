@@ -19,3 +19,6 @@ StatementGenerator nos permite recibir la información de todos los movimientos 
  [DONE] - recibirDatos : Solicita al AccountRepository todos los movimientos.
  [DONE] - agregarBalance : Agrega en cada movimiento, el balance parcial.
  - devuelveStatement : Formatea la información y genera un string.
+
+ Modificar parámetros para recibir un Transaction en lugar de datos sueltos.
+    AccountRepository.save(String timeStamp, Integer amount){

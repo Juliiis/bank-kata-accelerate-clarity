@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 
 public class StatementGenerator {
-    private DataBase database;
+    private final DataBase database;
 
     public StatementGenerator(DataBase database){
+
         this.database = database;
     }
 
     public ArrayList<TransactionForStatement> getData(){
+
         ArrayList<Transaction> inputList = database.data;
         ArrayList<TransactionForStatement> outputList = new ArrayList<>();
         Integer balance = 0;

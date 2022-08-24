@@ -9,4 +9,13 @@ public class TransactionForStatement {
         this.balance = balance;
     }
 
+    public String getTimestamp() {
+        return timestamp;
+    }
+    public Integer getAmount() {
+        return amount;
+    }
+    public Integer getBalance() {
+        return balance;
+    }
 }

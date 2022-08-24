@@ -20,16 +20,22 @@ public class StatementGenerator {
         return outputList;
     }
 
-//    private ArrayList<TransactionForStatement> addCalculatedBalance(ArrayList<Transaction> input ){
-//
-//        //Recorrer input<Transaction> y copiar uno a uno los valores a una lista de TransactionForStatement
-//
-//        /*
-//            for each transaction of input list:
-//             crear transactionForStatement
-//             copiar [transaction] >> [transactionForStatement]
-//             calcular balance >> [ transactionforStatement]
-//        */
-//
-//    }
+    public ArrayList<ArrayList<String>> getStatement(ArrayList<TransactionForStatement> transactionList) {
+        ArrayList<ArrayList<String>> outputTable = new ArrayList<>();
+        ArrayList<String> innerList = new ArrayList<>();
+        innerList.add("Date");
+        innerList.add("Amount");
+        innerList.add("Balance");
+        outputTable.add(innerList);
+
+        for(TransactionForStatement transaction : transactionList) {
+            ArrayList<String> innerElementList = new ArrayList<>();
+            innerElementList.add(transaction.getTimestamp());
+            innerElementList.add(transaction.getAmount().toString());
+            innerElementList.add(transaction.getBalance().toString());
+            outputTable.add(innerElementList);
+        }
+        
+        return outputTable;
+    }
 }

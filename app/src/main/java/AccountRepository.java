@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class AccountRepository {
 
-    private final DataBase database;
+    final DataBase database;
 
     public AccountRepository() {
 

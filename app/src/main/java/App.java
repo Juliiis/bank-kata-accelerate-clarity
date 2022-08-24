@@ -14,12 +14,6 @@ public class App {
         account.withdraw(100);
         account.deposit(300);
 
-        ArrayList<ArrayList<String>> outputTable = statementGenerator.getStatement(statementGenerator.getData());
-        for (ArrayList<String> row : outputTable) {
-            for (String element : row) {
-                System.out.format("%12s", element);
-            }
-            System.out.println();
-        }
+        System.out.println(statementGenerator.getStatement(statementGenerator.getData()));
     }
 }

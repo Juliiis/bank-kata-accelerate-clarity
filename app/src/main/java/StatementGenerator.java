@@ -20,7 +20,7 @@ public class StatementGenerator {
         return outputList;
     }
 
-    public ArrayList<ArrayList<String>> getStatement(ArrayList<TransactionForStatement> transactionList) {
+    public String getStatement(ArrayList<TransactionForStatement> transactionList) {
         ArrayList<ArrayList<String>> outputTable = new ArrayList<>();
         ArrayList<String> innerList = new ArrayList<>();
         innerList.add("Date");
@@ -35,7 +35,14 @@ public class StatementGenerator {
             innerElementList.add(transaction.getBalance().toString());
             outputTable.add(innerElementList);
         }
-        
-        return outputTable;
+
+        String output = "";
+        for (ArrayList<String> row : outputTable) {
+            for (String element : row) {
+                    output += String.format("%12s", element);
+            }
+            output += "\n";
+        }
+        return output;
     }
 }

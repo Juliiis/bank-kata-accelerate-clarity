@@ -14,6 +14,6 @@ public class App {
         account.withdraw(100);
         account.deposit(300);
 
-        System.out.println(statementGenerator.getStatement(statementGenerator.getData()));
+        System.out.print(account.printStatement(statementGenerator));
     }
 }

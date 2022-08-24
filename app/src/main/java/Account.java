@@ -28,9 +28,7 @@ public class Account {
     }
 
     String printStatement(StatementGenerator statementGenerator){
-
-
-        return "";
+        return statementGenerator.getStatement(statementGenerator.getData());
     }
 
 }

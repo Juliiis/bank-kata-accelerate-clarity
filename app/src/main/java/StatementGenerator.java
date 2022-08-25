@@ -1,16 +1,15 @@
 import java.util.ArrayList;
 
 public class StatementGenerator {
-    private final DataBase database;
+    private final InMemoryDatabase inMemoryDatabase;
 
-    public StatementGenerator(DataBase database){
-
-        this.database = database;
+    public StatementGenerator(InMemoryDatabase inMemoryDatabase){
+        this.inMemoryDatabase = inMemoryDatabase;
     }
 
     public ArrayList<TransactionForStatement> getData(){
 
-        ArrayList<Transaction> inputList = database.data;
+        ArrayList<Transaction> inputList = inMemoryDatabase.findAll();
         ArrayList<TransactionForStatement> outputList = new ArrayList<>();
         Integer balance = 0;
         for (Transaction transaction:inputList) {
@@ -36,13 +35,13 @@ public class StatementGenerator {
             outputTable.add(innerElementList);
         }
 
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (ArrayList<String> row : outputTable) {
             for (String element : row) {
-                    output += String.format("%12s", element);
+                    output.append(String.format("%12s", element));
             }
-            output += "\n";
+            output.append("\n");
         }
-        return output;
+        return output.toString();
     }
 }

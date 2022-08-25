@@ -10,12 +10,12 @@ public class StatementGeneratorTest {
     }
 
     private ArrayList<TransactionForStatement> createActualResult() {
-        DataBase database = new DataBase();
+        InMemoryDatabase inMemoryDatabase = new InMemoryDatabase();
         Transaction transaction1 = new Transaction("25.06.2022", 300);
         Transaction transaction2 = new Transaction("01.11.2022", -200);
-        database.data.add(transaction1);
-        database.data.add(transaction2);
-        StatementGenerator statementGenerator = new StatementGenerator(database);
+        inMemoryDatabase.save(transaction1);
+        inMemoryDatabase.save(transaction2);
+        StatementGenerator statementGenerator = new StatementGenerator(inMemoryDatabase);
         ArrayList<TransactionForStatement> actualResult = statementGenerator.getData();
         return actualResult;
     }

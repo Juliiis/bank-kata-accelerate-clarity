@@ -1,9 +1,11 @@
 public class Account {
 
     private final AccountRepository accountRepository;
+    private final StatementGenerator statementGenerator;
 
-    public Account(AccountRepository accountRepository) {
+    public Account(AccountRepository accountRepository, StatementGenerator statementGenerator) {
         this.accountRepository = accountRepository;
+        this.statementGenerator = statementGenerator;
     }
 
     void deposit(int amount){
@@ -18,7 +20,7 @@ public class Account {
 
     void withdraw(int amount){
         if (amount > 0) {
-            amount *= -1;
+            amount = -amount;
             Transaction transaction = new Transaction("05.07.2022", amount);
             accountRepository.save(transaction);
         }
@@ -27,7 +29,7 @@ public class Account {
         }
     }
 
-    String printStatement(StatementGenerator statementGenerator){
+    String printStatement(){
         return statementGenerator.getStatement(statementGenerator.getData());
     }
 

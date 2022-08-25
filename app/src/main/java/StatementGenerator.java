@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class StatementGenerator {
-    private final InMemoryDatabase inMemoryDatabase;
+    private final AccountRepository accountRepository;
 
-    public StatementGenerator(InMemoryDatabase inMemoryDatabase){
-        this.inMemoryDatabase = inMemoryDatabase;
+    public StatementGenerator(AccountRepository accountRepository){
+        this.accountRepository = accountRepository;
     }
 
     public ArrayList<TransactionForStatement> getData(){
 
-        ArrayList<Transaction> inputList = inMemoryDatabase.findAll();
+        ArrayList<Transaction> inputList = accountRepository.findAll();
         ArrayList<TransactionForStatement> outputList = new ArrayList<>();
         Integer balance = 0;
         for (Transaction transaction:inputList) {

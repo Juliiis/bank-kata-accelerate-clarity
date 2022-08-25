@@ -4,9 +4,9 @@ public class App {
     }
 
     public static void main(String[] args) {
-        InMemoryDatabase inMemoryDatabase = new InMemoryDatabase();
-        StatementGenerator statementGenerator = new StatementGenerator(inMemoryDatabase);
-        Account account = new Account(inMemoryDatabase, statementGenerator);
+        PostgresDatabase postgresDatabase = new PostgresDatabase();
+        StatementGenerator statementGenerator = new StatementGenerator(postgresDatabase);
+        Account account = new Account(postgresDatabase, statementGenerator);
 
         account.deposit(300);
         account.withdraw(100);
